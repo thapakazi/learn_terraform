@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # custom port change to fit our security group configs & reload
-sed -i  's/^#\(Port\) \([0-9]*\)/\1 3333/g' /etc/ssh/sshd_config && systemctl restart sshd
+sed -i  's/^#\(Port\) \([0-9]*\)/\1 7302/g' /etc/ssh/sshd_config && systemctl restart sshd
 
 # install basic automation tools
 apt update 
