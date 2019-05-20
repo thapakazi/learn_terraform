@@ -46,20 +46,19 @@ variable "cidr_block" {
 
 variable "vpc_id" {}
 
-
 ### provider variables
 variable "aws_region" {
-  default = "us-west-1"
+  default = "us-east-1"
 }
 variable "aws_profile" {
-  default = "smartmob"
+  default = "default"
 }
 
 
 variable subnet_a_public {
   default = {
     cidr = "10.0.32.0/20"
-    az  = "us-west-1a"
+    az  = "us-east-1a"
     tagName = "subnet_a_public"
   }
 }
@@ -67,7 +66,7 @@ variable subnet_a_public {
 variable subnet_a_private {
   default = {
     cidr = "10.0.0.0/19"
-    az  = "us-west-1a"
+    az  = "us-east-1a"
     tagName = "subnet_a_private"
   }
 }
@@ -75,7 +74,7 @@ variable subnet_a_private {
 variable subnet_c_public {
   default = {
     cidr = "10.0.96.0/20"
-    az  = "us-west-1c"
+    az  = "us-east-1c"
     tagName = "subnet_c_public"
   }
 }
@@ -83,7 +82,7 @@ variable subnet_c_public {
 variable subnet_c_private {
   default = {
     cidr = "10.0.64.0/19"
-    az  = "us-west-1c"
+    az  = "us-east-1c"
     tagName = "subnet_c_private"
   }
 }

@@ -1,10 +1,9 @@
 module "my_vpc" {
   source = "../../modules/vpc"
-  cidr_block = "192.168.0.0/16"
+  cidr_block = "10.0.0.0/16"
   instance_tenancy = "default"
   vpc_id = "${module.my_vpc.vpc_id}"
-  aws_region = "us-west-1"
-  aws_profile = "myprofile"
+  aws_region = "us-east-1"
 }
 
 # module "minion" {
