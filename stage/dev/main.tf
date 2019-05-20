@@ -4,25 +4,25 @@ module "my_vpc" {
   instance_tenancy = "default"
   vpc_id = "${module.my_vpc.vpc_id}"
   aws_region = "us-east-1"
+  aws_profile = "default"
 }
 
-# module "minion" {
-#   source = "../../modules/ec2"
-#   instance_type = "t2.micro"
-#   subnet_id = "${module.my_vpc.subnet_public_a_cidr}"
+module "minion" {
+  source = "../../modules/ec2"
+  instance_type = "t2.micro"
+  ami_id = "ami-0a313d6098716f372"  #ubuntu 18.04 on us-east-1
+  tag_app_name = "johnwick"
+  tag_app_sg= "johnwick-production-app"
+  tag_common_sg = "johnwick-production-common"
+  tag_app_name = "johnwick-production-app"
+  tag_app_role = "app"
+  tag_app_env = "production"
+  tag_project = "johnwick"
 
-#   app_name = "johnwick"
-#   tag_app_sg= "johnwick-production-app"
-#   tag_common_sg = "johnwick-production-common"
-#   tag_app_name = "johnwick-production-app"
-#   tag_app_role = "app"
-#   tag_app_env = "production"
-#   tag_project = "johnwick"
-
-#   vpc_id = "vpc-0a0ca8fd7b360c5ec"
-#   subnet_private = "subnet-0a400b0af8b0e0851"
-#   aws_region = "eu-west-1"
-#   aws_profile = "smartmob"
-#   instance_iam_role = "johnwick"
-#   ssh_port=3333
-# }
+  vpc_id = "${module.my_vpc.vpc_id}"
+  subnet_id = "${module.my_vpc.subnet_id_a_public}"
+  aws_region = "us-east-1"
+  aws_profile = "default"
+  instance_iam_role = "default"
+  ssh_port=2048
+}

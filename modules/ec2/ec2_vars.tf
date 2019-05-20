@@ -14,7 +14,7 @@ variable "vpc_id" {
   description = "The ID of the VPC that the instance security group belongs to"
 }
 
-variable "subnet_private" {
+variable "subnet_id" {
   description = "VPC Subnet ID the instance is launched in"
 }
 
@@ -28,7 +28,7 @@ variable "ami_id"{
 }
 
 variable "instance_type"{
-  default = "t3.medium"
+  default = "t2.micro"
 }
 
 variable aws_region {}

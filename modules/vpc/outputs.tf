@@ -12,3 +12,19 @@ output "vpc_cidr_block" {
   value       = "${aws_vpc.default.cidr_block}"
   description = "The CIDR block of the VPC"
 }
+
+output "subnet_id_a_private" {
+  value = "${aws_subnet.PrivateA.id}"
+}
+
+output "subnet_id_a_public" {
+  value = "${aws_subnet.PublicA.id}"
+}
+
+output "subnet_id_c_private" {
+  value = "${aws_subnet.PrivateC.id}"
+}
+
+output "subnet_id_c_public" {
+  value = "${aws_subnet.PublicC.id}"
+}
