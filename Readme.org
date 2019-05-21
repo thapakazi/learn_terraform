@@ -1,0 +1,30 @@
+* Demo
+  - terraform appy: http://showterm.io/6814240a8c181e95e1f83#fast
+  - terrform destroy: http://showterm.io/2a824e3065c28828ed011#fast
+    
+* What this script does:
+
+  Create the following using Terraform and following hashicorp best practices. Write what you consider to be production code. This should be code that you are proud of with no corners cut that you would suggest that Exodus put into production on your first day at work.
+
+
+  - [X] VPC with 2 public subnets, 2 private subnets
+  - [X] Internet Gateway, Route Tables and NAT Gateways
+  - [X] AZs are us-east-1a/c
+  - [X] NACL (default)
+
+Create the Terraform, packer, user-data, and python code that will create a highly available REST API listening on port 3000 using http://hug.rest that listens on the url path "/weather" and responds with "It's a sunny day"
+
+The following need to be installed on the Ubuntu 18.04 server
+
+Python 2.x (for awscli) 3.x (for hug)
+Awscli
+Hug
+
+* Flow:
+  This IaC:
+  - spins up a vpc (in us-east-1) with 2 private& public subnets (a-z)
+  - boots up ec2 instance:
+    - ec2 instance is bootstrapped with userdata
+    - userdata creates a deploy user
+    - deploy user runs docker image as daemonized process serving app
+  

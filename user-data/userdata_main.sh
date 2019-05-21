@@ -2,7 +2,7 @@
 
 install_deps(){
     apt update 
-    apt install -y python-pip libssl-dev git docker.io
+    apt install -y docker.io   # python-pip libssl-dev git
     pip install awscli ansible
 }
 deploy(){
