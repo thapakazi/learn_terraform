@@ -4,7 +4,7 @@ module "my_vpc" {
   instance_tenancy = "default"
   vpc_id = "${module.my_vpc.vpc_id}"
   aws_region = "us-east-1"
-  aws_profile = "default"
+  aws_profile = "nextgen"
 }
 
 module "minion" {
@@ -22,7 +22,7 @@ module "minion" {
   vpc_id = "${module.my_vpc.vpc_id}"
   subnet_id = "${module.my_vpc.subnet_id_a_public}"
   aws_region = "us-east-1"
-  aws_profile = "default"
-  instance_iam_role = "default"
-  ssh_port=2048
+  aws_profile = "nextgen"
+  # instance_iam_role = "I am skipping this for now"
+  # ssh_port= 22
 }

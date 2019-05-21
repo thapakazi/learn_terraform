@@ -11,8 +11,8 @@ resource "aws_instance" "app" {
   ami                  = "${var.ami_id}"
   instance_type        = "${var.instance_type}"
   key_name             = "${aws_key_pair.terraform.key_name}"
-  iam_instance_profile = "${var.instance_iam_role}"
-  user_data            = "${file("../../user-data/userdata.sh")}"
+  # iam_instance_profile = "${var.instance_iam_role}"
+  user_data            = "${file("../../user-data/userdata_main.sh")}"
   root_block_device{
     volume_size        = 16
     volume_type        = "gp2"
