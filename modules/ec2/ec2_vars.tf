@@ -18,10 +18,10 @@ variable "subnet_id" {
   description = "VPC Subnet ID the instance is launched in"
 }
 
-# variable "instance_iam_role"{
-#   description = "IAM role to attach to instance"
-#   default = "role_with_xyz_permission"
-# }
+variable "instance_iam_role"{
+  description = "IAM role to attach to instance"
+  default = "role_with_xyz_permission"
+}
 
 variable "ami_id"{
   default = "ami-08d658f84a6d84a80"

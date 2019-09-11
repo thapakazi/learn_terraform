@@ -3,16 +3,16 @@ provider "aws" {
   profile = "${var.aws_profile}"
 }
 
-data "aws_vpc" "production" {
+data "aws_vpc" "vpc_name" {
   id = "${var.vpc_id}"
 }
 
 resource "aws_instance" "app" {
   ami                  = "${var.ami_id}"
   instance_type        = "${var.instance_type}"
-  key_name             = "${aws_key_pair.terraform.key_name}"
+  key_name             = "${aws_key_pair.ci-devops.key_name}"
   # iam_instance_profile = "${var.instance_iam_role}"
-  user_data            = "${file("../../user-data/userdata_main.sh")}"
+  user_data            = "${file("../../user-data/userdata.sh")}"
   root_block_device{
     volume_size        = 16
     volume_type        = "gp2"
